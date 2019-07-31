@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import sol.in.soul.model.WebResource;
 import sol.in.soul.service.WebResourceService;
+
+import java.net.URI;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -42,6 +44,7 @@ public class WebResourceController {
 
     @RequestMapping(value = "/addWebResource", method = RequestMethod.POST)
     public ModelAndView create(@ModelAttribute WebResource webResource, ModelAndView modelAndView) {
+        URI.create(webResource.getResourceUrl());
         webResourceService.create(webResource);
         List<WebResource> webResources = webResourceService.getAll().orElseGet(Collections::emptyList);
         modelAndView.addObject("webResources", webResources);

@@ -24,11 +24,11 @@ public class WebResourceStatusCheck {
     @Scheduled(initialDelay = 5000, fixedDelay = 5000)
     public void checkAndUpdateWebResourceStatus() {
         List<WebResource> webResources = webResourceService.getAll().orElseGet(Collections::emptyList);
-        List<WebResource> webResourcesUpdated = webResources.stream()
+        webResources.stream()
                 .peek(w -> w.setResourceStatus(restTemplate
                         .exchange(URI.create(w.getResourceUrl()), HttpMethod.GET, null, String.class)
                         .toString().substring(1, 4)))
                 .peek(w -> webResourceService.update(w))
-                .collect(Collectors.toList()); //TODO CLEAN STATUSES and start both modules
+                .collect(Collectors.toList());
     }
 }
