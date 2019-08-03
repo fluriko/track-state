@@ -1,9 +1,9 @@
 package sol.in.soul.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import sol.in.soul.model.WebResource;
+import sol.in.soul.model.WebResourceShort;
 
-public interface WebResourceRepository extends JpaRepository<WebResource, Long> {
+public interface WebResourceShortRepository extends JpaRepository<WebResourceShort, Long> {
 
     void deleteAllByResourceName(String resourceName);
 }

@@ -12,4 +12,9 @@ public class ExceptionHandlerController {
     public ResponseEntity<String> alreadyRegistered() {
         return ResponseEntity.status(409).body("Url is not correct");
     }
+
+    @ExceptionHandler(Throwable.class)
+    public ResponseEntity<String> handleAll() {
+        return ResponseEntity.status(409).body("Sorry, something went wrong");
+    }
 }

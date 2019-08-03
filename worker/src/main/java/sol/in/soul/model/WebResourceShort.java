@@ -6,11 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.time.Duration;
 
 @Entity
-@Table(name = "WEB_RESOURCES")
-public class WebResource {
+@Table(name = "WEB_RESOURCES_SHORT")
+public class WebResourceShort {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,12 +21,6 @@ public class WebResource {
 
     @Column(name = "RESOURCE_URL")
     private String resourceUrl;
-
-    @Column(name = "RESOURCE_STATUS")
-    private String resourceStatus;
-
-    @Column(name = "RESPONSE_DURATION")
-    private Duration responseDuration;
 
     public Long getId() {
         return id;
@@ -52,20 +45,5 @@ public class WebResource {
     public void setResourceUrl(String resourceUrl) {
         this.resourceUrl = resourceUrl;
     }
-
-    public String getResourceStatus() {
-        return resourceStatus;
-    }
-
-    public void setResourceStatus(String resourceStatus) {
-        this.resourceStatus = resourceStatus;
-    }
-
-    public Duration getResponseDuration() {
-        return responseDuration;
-    }
-
-    public void setResponseDuration(Duration responseDuration) {
-        this.responseDuration = responseDuration;
-    }
 }
+

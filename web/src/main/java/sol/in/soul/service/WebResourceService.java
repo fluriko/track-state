@@ -10,5 +10,7 @@ public interface WebResourceService {
 
     Optional<WebResource> create(WebResource webResource);
 
-    void deleteById(Long id);
+    void delete(WebResource webResource);
+
+    Optional<WebResource> getById(Long id);
 }

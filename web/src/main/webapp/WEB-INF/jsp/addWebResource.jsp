@@ -7,7 +7,7 @@
     <title>add new web resource</title>
 </head>
 <body>
-<spring:form modelAttribute="webResource" method="post" action="/addWebResource">
+<spring:form modelAttribute="webResourceShort" method="post" action="/addWebResource">
 
     <label for="resourceName">resource name</label>
     <spring:input path="resourceName" id="resourceName"/>
